@@ -1,27 +1,28 @@
-const dominio2 = "http://127.0.0.1:5000";
+// const domMainPlatillos = "https://f3rn4nd021py.pythonanywhere.com";
+const domMainPlatillos = "http://127.0.0.1:5000";
 var categoria = 2;
 
-window.addEventListener('load',(e)=>{
+window.addEventListener('load', (e) => {
     filtroCategoria(categoria);
     modalClose();
     const registrarPlatillo = document.getElementById('registrarPlatillo');
-    registrarPlatillo.addEventListener('click',(e)=>{
+    registrarPlatillo.addEventListener('click', (e) => {
         const txtAccion = document.getElementById('txtAccion');
-        if (txtAccion.value === "INSERT"){
+        if (txtAccion.value === "INSERT") {
             platillosInsert();
-        }else{
+        } else {
             platillosUpdate();
         }
     });
     const btnInsertarPlatillo = document.getElementById('btnInsertarPlatillo');
-    btnInsertarPlatillo.addEventListener('click',(e)=>{
+    btnInsertarPlatillo.addEventListener('click', (e) => {
         vaciarFormulario();
         $('#tituloUpdate').html('INSERTAR PLATILLO');
         $('#registrarPlatillo').html('Registrar');
         modalClose();
     });
     const confirmarEliminacionPlatillo = document.getElementById('confirmarEliminacionPlatillo');
-    confirmarEliminacionPlatillo.addEventListener('click',(e)=>{
+    confirmarEliminacionPlatillo.addEventListener('click', (e) => {
         $.ajax({
             type: "PUT",
             url: dominio + "/platillos/delete/" + id + "/",
@@ -39,13 +40,13 @@ function filtroCategoriaSelected() {
     filtroCategoria(selectedValue);
 }
 
-function filtroCategoria(id){
+function filtroCategoria(id) {
     platillosSelect(id);
     categoria = id;
     $('#categoriaSelectRegisterPlatillo').val(id)
 }
 
-function vaciarFormulario(){
+function vaciarFormulario() {
     $('#txtAccion').val('INSERT');
     $('#txtIdPlatillo').val('');
     $('#nombrePlatillo>input').val('');
@@ -60,33 +61,33 @@ function vaciarFormulario(){
 function platillosSelect(idCategoria) {
     $.ajax({
         type: "GET",
-        url: `${dominio2}/platillos/selectCateg/${idCategoria}`,
+        url: `${domMainPlatillos}/platillos/selectCateg/${idCategoria}`,
         dataType: "json",
         success: function (data) {
             let contenido = '';
             $.each(data["resultado"], function (llave, valor) {
                 console.log(valor);
                 contenido += `<div class="cardOfertas efectoCarta">`;
-                    contenido += `<div class="front">`;
-                        contenido += `<div class="img">`;
-                            contenido += `<img src="http://127.0.0.1:5000/platillos/foto/${valor["imagen"]}" alt="">`;
-                            contenido += `<div class="back">`;
-                                contenido += `<p>${valor["descripcion"]}</p>`;
-                            contenido += `</div>`;
-                        contenido += `</div>`;
-                        contenido += `<div class="info">`;
-                            contenido += `<h3>${valor["nombreProducto"]}</h3>`;
-                            contenido += `<p>Precio: S/${valor["precio"]}</p>`;
-                            contenido += `<div class="botones">`;
-                                contenido += `<button type="button" class="btn btn-success" onclick="platillosGet(${valor["idProducto"]})" data-toggle="modal" data-target="#crearOferta">`
-                                    contenido += `<i class='bx bx-up-arrow-alt'></i>`;
-                                contenido += `</button>`;
-                                contenido += `<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminarPlatillo" onclick="eliminarPlatilloModal(${valor["idProducto"]}, '${valor["nombreProducto"]}')">`
-                                    contenido += `<i class='bx bx-trash'></i>`;
-                                contenido += `</button>`;
-                            contenido += `</div>`;
-                        contenido += `</div>`;
-                    contenido += `</div>`;
+                contenido += `<div class="front">`;
+                contenido += `<div class="img">`;
+                contenido += `<img src="http://127.0.0.1:5000/platillos/foto/${valor["imagen"]}" alt="">`;
+                contenido += `<div class="back">`;
+                contenido += `<p>${valor["descripcion"]}</p>`;
+                contenido += `</div>`;
+                contenido += `</div>`;
+                contenido += `<div class="info">`;
+                contenido += `<h3>${valor["nombreProducto"]}</h3>`;
+                contenido += `<p>Precio: S/${valor["precio"]}</p>`;
+                contenido += `<div class="botones">`;
+                contenido += `<button type="button" class="btn btn-success" onclick="platillosGet(${valor["idProducto"]})" data-toggle="modal" data-target="#crearOferta">`
+                contenido += `<i class='bx bx-up-arrow-alt'></i>`;
+                contenido += `</button>`;
+                contenido += `<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminarPlatillo" onclick="eliminarPlatilloModal(${valor["idProducto"]}, '${valor["nombreProducto"]}')">`
+                contenido += `<i class='bx bx-trash'></i>`;
+                contenido += `</button>`;
+                contenido += `</div>`;
+                contenido += `</div>`;
+                contenido += `</div>`;
                 contenido += `</div>`;
             });
             $('#ofertas-content').html(contenido);
@@ -94,7 +95,7 @@ function platillosSelect(idCategoria) {
     });
 }
 
-function platillosUpdate(){
+function platillosUpdate() {
     const registrosPlatillo = new FormData();
     registrosPlatillo.append("txtNombrePlatillo", $('#nombrePlatillo>input').val());
     registrosPlatillo.append("txtPrecio", $('#precioPlatillo>input').val());
@@ -103,7 +104,7 @@ function platillosUpdate(){
     registrosPlatillo.append("txtIdCategoria", $('#categoriaSelectRegisterPlatillo').val());
     $.ajax({
         type: "PUT",
-        url: `${dominio2}/platillos/update/${$('#txtIdPlatillo').val()}`,
+        url: `${domMainPlatillos}/platillos/update/${$('#txtIdPlatillo').val()}`,
         data: registrosPlatillo,
         dataType: 'json',
         contentType: false,
@@ -116,7 +117,7 @@ function platillosUpdate(){
     });
 }
 
-function platillosInsert(){
+function platillosInsert() {
     const registrosPlatillo = new FormData();
     registrosPlatillo.append("txtNombrePlatillo", $('#nombrePlatillo>input').val());
     registrosPlatillo.append("txtPrecio", $('#precioPlatillo>input').val());
@@ -125,7 +126,7 @@ function platillosInsert(){
     registrosPlatillo.append("txtIdCategoria", $('#categoriaSelectRegisterPlatillo').val());
     $.ajax({
         type: "POST",
-        url: `${dominio2}/platillos/create/`,
+        url: `${domMainPlatillos}/platillos/create/`,
         data: registrosPlatillo,
         dataType: 'json',
         contentType: false,
@@ -138,11 +139,11 @@ function platillosInsert(){
     });
 }
 
-function platillosGet(id){
+function platillosGet(id) {
     vaciarFormulario();
     $.ajax({
         type: "GET",
-        url: `${dominio2}/platillos/get/${id}`,
+        url: `${domMainPlatillos}/platillos/get/${id}`,
         dataType: "json",
         success: function (data) {
             $('#tituloUpdate').html('ACTUALIZAR PLATILLO');
@@ -157,13 +158,13 @@ function platillosGet(id){
     });
 }
 
-function modalClose(){
+function modalClose() {
     const modalClose = document.getElementById('modalClose');
-    modalClose.addEventListener('click',(e)=>{
+    modalClose.addEventListener('click', (e) => {
         vaciarFormulario();
     });
 }
 
-function eliminarPlatilloModal(id, nombreProducto){
-    $('#preguntaEliminarPlatillo').html("¿Estas seguro de eliminar el producto "+nombreProducto+"?");
+function eliminarPlatilloModal(id, nombreProducto) {
+    $('#preguntaEliminarPlatillo').html("¿Estas seguro de eliminar el producto " + nombreProducto + "?");
 }

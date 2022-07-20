@@ -1,4 +1,5 @@
-const dominio = "http://127.0.0.1:5000/";
+// const domMainCargos = "https://f3rn4nd021py.pythonanywhere.com/";
+const domMainCargos = "http://127.0.0.1:5000/";
 
 window.addEventListener('load', (e) => {
     const url = window.location.pathname;
@@ -37,7 +38,7 @@ window.addEventListener('load', (e) => {
 function empSelectCargos() {
     $.ajax({
         type: "GET",
-        url: dominio + "empleados/select/",
+        url: domMainCargos + "empleados/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -74,8 +75,8 @@ function CargoUpdateEmp() {
     registrosEmpl.append("tituloModalCargoDes", $('#tituloModalCargoDes').val());
     $.ajax({
         type: "PUT",
-        url: dominio + "empleados/update2/" + registrosEmpl.get("miidnuevo") + "/",
-        // url: dominio + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
+        url: domMainCargos + "empleados/update2/" + registrosEmpl.get("miidnuevo") + "/",
+        // url: domMainCargos + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -99,7 +100,7 @@ function cargosCombo() {
     const url = window.location.pathname;
     $.ajax({
         type: "GET",
-        url: dominio + "cargos/select/",
+        url: domMainCargos + "cargos/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -130,8 +131,8 @@ function cargosCombo() {
 function cargosSelect() {
     $.ajax({
         type: "GET",
-        url: dominio + "cargos/select/",
-        // url: dominio+ "cargos/select/",
+        url: domMainCargos + "cargos/select/",
+        // url: domMainCargos+ "cargos/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -164,7 +165,7 @@ function empGetCargos(id) {
     $('#myModal3X').modal('hide');
     $.ajax({
         type: "GET",
-        url: dominio + "empleadosXcargo/get/" + id + "/",
+        url: domMainCargos + "empleadosXcargo/get/" + id + "/",
         dataType: "json",
         success: function (data) {
             $('#tituloModalCargoDes').html("<br>''" + data["resultado"]["nombreEmpleado"] + "''");
@@ -182,7 +183,7 @@ function empGetCargos(id) {
 function cargoGet(id) {
     $.ajax({
         type: "GET",
-        url: dominio + "cargos/get/" + id + "/",
+        url: domMainCargos + "cargos/get/" + id + "/",
         dataType: "json",
         success: function (data) {
             $('#txtidCargoModal2x').val(data["resultado"]["idCargo2"]);
@@ -199,7 +200,7 @@ function cargoInsert() {
     registrosEmpl.append("txtnombreCargo", $('#txtnombreCargo').val());
     $.ajax({
         type: "POST",
-        url: dominio + "cargos/create/",
+        url: domMainCargos + "cargos/create/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -224,7 +225,7 @@ function cargoUpdate() {
     registrosEmpl.append("txtnombreCargo2", $('#txtnombreCargo2').val());
     $.ajax({
         type: "PUT",
-        url: dominio + "cargos/update/" + registrosEmpl.get("txtidCargoModal2x") + "/",
+        url: domMainCargos + "cargos/update/" + registrosEmpl.get("txtidCargoModal2x") + "/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -280,7 +281,7 @@ function deshabilitar(id) {
     const url = window.location.pathname;
     $.ajax({
         type: "GET",
-        url: dominio + "cargos/comprobar/" + id + "/",
+        url: domMainCargos + "cargos/comprobar/" + id + "/",
         dataType: "json",
         success: function (data) {
             visualizarCondicionCargo(id);
@@ -292,7 +293,7 @@ function visualizarCondicionCargo(idCargo) {
     let contenido = '';
     $.ajax({
         type: "GET",
-        url: dominio + "empleados/getCargo/" + idCargo + "/",
+        url: domMainCargos + "empleados/getCargo/" + idCargo + "/",
         dataType: "json",
         success: function (data) {
             if (data["resultado"].length !== 0) {
@@ -327,12 +328,12 @@ function visualizarCondicionCargo(idCargo) {
     });
 }
 
-function confirmarEliminacionCargo(idCargo){
+function confirmarEliminacionCargo(idCargo) {
     const confirmarEliminacionCargo = document.getElementById('confirmarEliminacionCargo');
-    confirmarEliminacionCargo.addEventListener('click',(e)=>{
+    confirmarEliminacionCargo.addEventListener('click', (e) => {
         $.ajax({
             type: "DELETE",
-            url: dominio + "cargos/delete/"+idCargo+"/",
+            url: domMainCargos + "cargos/delete/" + idCargo + "/",
             dataType: 'json',
             contentType: false,
             enctype: 'multipart/form-data',
@@ -344,5 +345,5 @@ function confirmarEliminacionCargo(idCargo){
             }
         });
     });
-    
+
 }

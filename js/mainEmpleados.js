@@ -1,5 +1,5 @@
-
-const dominio2 = "http://127.0.0.1:5000/";
+// const domMainEmpleados = "https://f3rn4nd021py.pythonanywhere.com/";
+const domMainEmpleados = "http://127.0.0.1:5000/";
 window.addEventListener('load', (e) => {
     const url = window.location.pathname;
 
@@ -47,7 +47,7 @@ function modalCorroborarPassword(id) {
         valores.append("password", $('#txtPasswordC').val());
         $.ajax({
             type: "POST",
-            url: dominio2 + "empleados/corroborar/",
+            url: domMainEmpleados + "empleados/corroborar/",
             data: valores,
             dataType: 'json',
             contentType: false,
@@ -96,7 +96,7 @@ function insertarAdmiEmp() {
 function empSelect() {
     $.ajax({
         type: "GET",
-        url: dominio2 + "empleados/select/",
+        url: domMainEmpleados + "empleados/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -127,7 +127,7 @@ function empSelect() {
 function AdminSelect() {
     $.ajax({
         type: "GET",
-        url: dominio2 + "admins/select/",
+        url: domMainEmpleados + "admins/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -161,7 +161,7 @@ function empEliminar(id) {
     const url = window.location.pathname;
     $.ajax({
         type: "PUT",
-        url: dominio2 + "empleados/delete/" + id + "/",
+        url: domMainEmpleados + "empleados/delete/" + id + "/",
         dataType: "json",
         success: function (data) {
             if (url === "/pages/cuentasadmin.html" || url === "/pages/cuentasadmin") {
@@ -186,7 +186,7 @@ function empInsert() {
     registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
     $.ajax({
         type: "POST",
-        url: dominio2 + "empleados/create/",
+        url: domMainEmpleados + "empleados/create/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -206,7 +206,7 @@ function AdminInsert() {
     registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
     $.ajax({
         type: "POST",
-        url: dominio2 + "empleados/create/1/",
+        url: domMainEmpleados + "empleados/create/1/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -228,7 +228,7 @@ function empleadoUpdate() {
     registrosEmpl.append("txtidCargo", $('#contenidoCargosList2').val());
     $.ajax({
         type: "PUT",
-        url: dominio2 + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
+        url: domMainEmpleados + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,

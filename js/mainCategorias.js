@@ -1,4 +1,5 @@
-const dominio = "http://127.0.0.1:5000"
+// const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
+const domMainCategorias = "http://127.0.0.1:5000";
 
 window.addEventListener('load',(e)=>{
     categoriaFiltro();
@@ -9,7 +10,7 @@ window.addEventListener('load',(e)=>{
 function categoriaFiltro(){
     $.ajax({
         type: "GET",
-        url: dominio + "/categorias/select/",
+        url: domMainCategorias + "/categorias/select/",
         dataType: "json",
         success: function (response) {
             const tamañoVentana = window.innerWidth;
@@ -36,7 +37,7 @@ function categoriaFiltro(){
 function categoriasSelect(){
     $.ajax({
         type: "GET",
-        url: dominio + "/categorias/select/",
+        url: domMainCategorias + "/categorias/select/",
         dataType: "json",
         success: function (response) {
             $('#ofertas-content').empty();
@@ -70,7 +71,7 @@ function categoriasSelect(){
  function categoriaPlatilloRegister(){
     $.ajax({
         type: "GET",
-        url: dominio + "/categorias/select/",
+        url: domMainCategorias + "/categorias/select/",
         dataType: "json",
         success: function (response) {
             let contenido = ``;

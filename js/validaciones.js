@@ -38,12 +38,12 @@ $('#limpiarAgregar').click(function () {
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
     const url = window.location.pathname;
-    if(url === "/pages/trabajadores.html"){
+    if (url === "/pages/trabajadores.html") {
         filtrarTrabajador();
-    }else if(url === "/pages/platillos.html"){
-        
+    } else if (url === "/pages/platillos.html") {
+
     }
-        
+
 });
 // faltaria validar estos datos con python
 

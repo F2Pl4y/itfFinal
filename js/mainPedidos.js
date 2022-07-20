@@ -1,4 +1,5 @@
-const dominio = "http://127.0.0.1:5000/";
+// const domMainPedidos = "https://f3rn4nd021py.pythonanywhere.com/";
+const domMainPedidos = "http://127.0.0.1:5000/";
 
 window.addEventListener('load',(e)=>{
     pedidosSelect();
@@ -9,7 +10,7 @@ function pedidosSelect(){
     const id = sessionStorage.getItem("idEmpleado");
     $.ajax({
         type: "GET",
-        url: `${dominio}pedido/selectEmp/${id}/`,
+        url: `${domMainPedidos}pedido/selectEmp/${id}/`,
         dataType: "json",
         success: function (data) {
             let contenido = ``;
@@ -47,7 +48,7 @@ function pedidosSelect(){
 function pagarPedido(idPedido){
     $.ajax({
         type: "PUT",
-        url: dominio + "pedido/update/" + idPedido + "/",
+        url: domMainPedidos + "pedido/update/" + idPedido + "/",
         dataType: 'json',
         contentType: false,
         enctype: 'multipart/form-data',
@@ -61,7 +62,7 @@ function pagarPedido(idPedido){
 function cancelarPedido(idPedido){
     $.ajax({
         type: "DELETE",
-        url: `${dominio}pedido/delete/${idPedido}/`,
+        url: `${domMainPedidos}pedido/delete/${idPedido}/`,
         dataType: 'json',
         contentType: false,
         enctype: 'multipart/form-data',

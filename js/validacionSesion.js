@@ -1,3 +1,5 @@
+// const domValidacionSesion = "https://f3rn4nd021py.pythonanywhere.com/";
+const domValidacionSesion = "http://127.0.0.1:5000/";
 window.addEventListener('load', (e) => {
     const url = window.location.pathname;
     if (url === "/index.html" || url === "/") {
@@ -90,7 +92,7 @@ function validarSesssion() {
     } else {
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:5000/empleados/get/" + idEmpleado + "/",
+            url: domValidacionSesion + "empleados/get/" + idEmpleado + "/",
             dataType: "json",
             success: function (data) {
                 validarOperaciones(data["resultado"]["idCargo"]);
@@ -105,7 +107,7 @@ function operacionLoguear() {
     if (idEmpleado !== 'null') {
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:5000/empleados/get/" + idEmpleado + "/",
+            url: domValidacionSesion + "empleados/get/" + idEmpleado + "/",
             dataType: "json",
             success: function (data) {
                 if (data["exito"] === true) {
@@ -129,7 +131,7 @@ function login() {
         registro.append("txtPassword", txtPassword.value);
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:5000/empleados/login/",
+            url: domValidacionSesion + "empleados/login/",
             data: registro,
             contentType: false,
             dataType: "json",
@@ -152,7 +154,7 @@ function llenarPerfil() {
     if (idEmpleado !== null) {
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:5000/empleados/loginget/" + idEmpleado + "/",
+            url: domValidacionSesion + "empleados/loginget/" + idEmpleado + "/",
             dataType: "json",
             success: function (data) {
                 if (data["exito"] === true) {
