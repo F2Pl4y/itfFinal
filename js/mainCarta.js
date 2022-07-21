@@ -33,7 +33,7 @@ window.addEventListener('load',(e)=>{
 function platillosSelect(idCategoria) {
     $.ajax({
         type: "GET",
-        url: `${dominio2}/platillos/selectCateg/${idCategoria}`,
+        url: `${domMainCarta}/platillos/selectCateg/${idCategoria}`,
         dataType: "json",
         success: function (data) {
             let contenido = '';
@@ -63,7 +63,7 @@ function platillosSelect(idCategoria) {
 function categoriaFiltro(){
     $.ajax({
         type: "GET",
-        url: dominio2 + "/categorias/select/",
+        url: domMainCarta + "/categorias/select/",
         dataType: "json",
         success: function (response) {
             let contenidoHTML = ``;
@@ -104,7 +104,7 @@ function carritoSelect(){
         datos.append("carrito", carrito)
         $.ajax({
             type: "POST",
-            url: `${dominio2}/detallepedido/carritoDetalle/`,
+            url: `${domMainCarta}/detallepedido/carritoDetalle/`,
             data: datos,
             dataType: 'json',
             contentType: false,
@@ -138,7 +138,7 @@ function realizarPedido(){
         datos.append("txtIdEmpleado", sessionStorage.getItem("idEmpleado"));
         $.ajax({
             type: "POST",
-            url: `${dominio2}/detallepedido/insert/`,
+            url: `${domMainCarta}/detallepedido/insert/`,
             data: datos,
             dataType: 'json',
             contentType: false,
