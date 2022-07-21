@@ -1,5 +1,5 @@
-// const domMainCarta = "https://f3rn4nd021py.pythonanywhere.com";
-const domMainCarta = "http://127.0.0.1:5000";
+const domMainCarta = "https://f3rn4nd021py.pythonanywhere.com";
+// const domMainCarta = "http://127.0.0.1:5000";
 
 let carrito = [];
 

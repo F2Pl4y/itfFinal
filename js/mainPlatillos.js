@@ -1,5 +1,5 @@
-// const domMainPlatillos = "https://f3rn4nd021py.pythonanywhere.com";
-const domMainPlatillos = "http://127.0.0.1:5000";
+const domMainPlatillos = "https://f3rn4nd021py.pythonanywhere.com";
+// const domMainPlatillos = "http://127.0.0.1:5000";
 var categoria = 2;
 
 window.addEventListener('load', (e) => {

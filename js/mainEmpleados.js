@@ -1,5 +1,5 @@
-// const domMainEmpleados = "https://f3rn4nd021py.pythonanywhere.com/";
-const domMainEmpleados = "http://127.0.0.1:5000/";
+const domMainEmpleados = "https://f3rn4nd021py.pythonanywhere.com/";
+// const domMainEmpleados = "http://127.0.0.1:5000/";
 window.addEventListener('load', (e) => {
     const url = window.location.pathname;
 

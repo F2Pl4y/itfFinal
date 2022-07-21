@@ -1,5 +1,5 @@
-// const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
-const domMainCategorias = "http://127.0.0.1:5000";
+const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
+// const domMainCategorias = "http://127.0.0.1:5000";
 
 window.addEventListener('load',(e)=>{
     categoriaFiltro();

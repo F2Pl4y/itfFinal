@@ -1,5 +1,5 @@
-// const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
-const domDetallePedido = "http://127.0.0.1:5000/";
+const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
+// const domDetallePedido = "http://127.0.0.1:5000/";
 function detalleSelect(idPedido){
     $.ajax({
         type: "GET",
