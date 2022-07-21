@@ -167,4 +167,5 @@ function modalClose() {
 
 function eliminarPlatilloModal(id, nombreProducto) {
     $('#preguntaEliminarPlatillo').html("¿Estas seguro de eliminar el producto " + nombreProducto + "?");
+    $('#txIdPlatilloConfirmacion').val(id);
 }
