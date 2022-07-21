@@ -3,7 +3,7 @@ const domMainCategorias = "https://f3rn4nd021py.pythonanywhere.com";
 function detalleSelect(idPedido){
     $.ajax({
         type: "GET",
-        url: `${domMainCategorias}detallepedido/selectDetallePedido/${idPedido}/`,
+        url: `${domMainCategorias}/detallepedido/selectDetallePedido/${idPedido}/`,
         dataType: "json",
         success: function (data) {
             let contenido = ``;
