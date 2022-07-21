@@ -61,7 +61,7 @@ function vaciarFormulario() {
 function platillosSelect(idCategoria) {
     $.ajax({
         type: "GET",
-        url: `${domMainPlatillos}/platillos/selectCateg/${idCategoria}`,
+        url: `${dominio2}/platillos/selectCateg/${idCategoria}`,
         dataType: "json",
         success: function (data) {
             let contenido = '';
@@ -104,7 +104,7 @@ function platillosUpdate() {
     registrosPlatillo.append("txtIdCategoria", $('#categoriaSelectRegisterPlatillo').val());
     $.ajax({
         type: "PUT",
-        url: `${domMainPlatillos}/platillos/update/${$('#txtIdPlatillo').val()}`,
+        url: `${dominio2}/platillos/update/${$('#txtIdPlatillo').val()}`,
         data: registrosPlatillo,
         dataType: 'json',
         contentType: false,
@@ -126,7 +126,7 @@ function platillosInsert() {
     registrosPlatillo.append("txtIdCategoria", $('#categoriaSelectRegisterPlatillo').val());
     $.ajax({
         type: "POST",
-        url: `${domMainPlatillos}/platillos/create/`,
+        url: `${dominio2}/platillos/create/`,
         data: registrosPlatillo,
         dataType: 'json',
         contentType: false,
@@ -143,7 +143,7 @@ function platillosGet(id) {
     vaciarFormulario();
     $.ajax({
         type: "GET",
-        url: `${domMainPlatillos}/platillos/get/${id}`,
+        url: `${dominio2}/platillos/get/${id}`,
         dataType: "json",
         success: function (data) {
             $('#tituloUpdate').html('ACTUALIZAR PLATILLO');

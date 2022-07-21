@@ -47,7 +47,7 @@ function modalCorroborarPassword(id) {
         valores.append("password", $('#txtPasswordC').val());
         $.ajax({
             type: "POST",
-            url: domMainEmpleados + "empleados/corroborar/",
+            url: dominio2 + "empleados/corroborar/",
             data: valores,
             dataType: 'json',
             contentType: false,
@@ -96,7 +96,7 @@ function insertarAdmiEmp() {
 function empSelect() {
     $.ajax({
         type: "GET",
-        url: domMainEmpleados + "empleados/select/",
+        url: dominio2 + "empleados/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -107,13 +107,13 @@ function empSelect() {
                 template += '<td>' + valor["nombreCargo"] + '</td>';
                 template += '<td class="grupoBotones">';
                 template += '<div class="btn-group">';
-                    template += '<button class="btn">';
-                    /* template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" onclick=empGet(' + valor["idEmpleado"] + ')><i class="gg-info"></i></a>'; */
-                    template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborarPassword" onclick="modalCorroborarPassword(' + valor["idEmpleado"] + ')"><i class="gg-info"></i></a>';
-                    template += '</button>';
-                    template += '<button class="btn">';
-                    template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idEmpleado"] + ')"><i class="gg-trash"></i></a>';
-                    template += '</button>';
+                template += '<button class="btn">';
+                /* template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" onclick=empGet(' + valor["idEmpleado"] + ')><i class="gg-info"></i></a>'; */
+                template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborarPassword" onclick="modalCorroborarPassword(' + valor["idEmpleado"] + ')"><i class="gg-info"></i></a>';
+                template += '</button>';
+                template += '<button class="btn">';
+                template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idEmpleado"] + ')"><i class="gg-trash"></i></a>';
+                template += '</button>';
                 template += '</div>';
                 template += '</td>';
                 template += '</tr>';
@@ -127,7 +127,7 @@ function empSelect() {
 function AdminSelect() {
     $.ajax({
         type: "GET",
-        url: domMainEmpleados + "admins/select/",
+        url: dominio2 + "admins/select/",
         dataType: "json",
         success: function (data) {
             var tabla = '';
@@ -161,7 +161,7 @@ function empEliminar(id) {
     const url = window.location.pathname;
     $.ajax({
         type: "PUT",
-        url: domMainEmpleados + "empleados/delete/" + id + "/",
+        url: dominio2 + "empleados/delete/" + id + "/",
         dataType: "json",
         success: function (data) {
             if (url === "/pages/cuentasadmin.html" || url === "/pages/cuentasadmin") {
@@ -186,7 +186,7 @@ function empInsert() {
     registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
     $.ajax({
         type: "POST",
-        url: domMainEmpleados + "empleados/create/",
+        url: dominio2 + "empleados/create/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -206,7 +206,7 @@ function AdminInsert() {
     registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
     $.ajax({
         type: "POST",
-        url: domMainEmpleados + "empleados/create/1/",
+        url: dominio2 + "empleados/create/1/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -228,7 +228,7 @@ function empleadoUpdate() {
     registrosEmpl.append("txtidCargo", $('#contenidoCargosList2').val());
     $.ajax({
         type: "PUT",
-        url: domMainEmpleados + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
+        url: dominio2 + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
