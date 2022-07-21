@@ -25,7 +25,7 @@ window.addEventListener('load', (e) => {
     confirmarEliminacionPlatillo.addEventListener('click', (e) => {
         $.ajax({
             type: "PUT",
-            url: domMainPlatillos + "/platillos/delete/" + id + "/",
+            url: domMainPlatillos + "/platillos/delete/" + $('#txIdPlatilloConfirmacion').val() + "/",
             dataType: "json",
             success: function (data) {
                 filtroCategoria(categoria);
