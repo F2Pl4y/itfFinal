@@ -70,7 +70,7 @@ function platillosSelect(idCategoria) {
                 contenido += `<div class="cardOfertas efectoCarta">`;
                 contenido += `<div class="front">`;
                 contenido += `<div class="img">`;
-                contenido += `<img src="http://127.0.0.1:5000/platillos/foto/${valor["imagen"]}" alt="">`;
+                contenido += `<img src="${domMainPlatillos}/platillos/foto/${valor["imagen"]}" alt="">`;
                 contenido += `<div class="back">`;
                 contenido += `<p>${valor["descripcion"]}</p>`;
                 contenido += `</div>`;

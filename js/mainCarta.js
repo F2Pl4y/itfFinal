@@ -41,7 +41,7 @@ function platillosSelect(idCategoria) {
                 contenido += `<div class="cardOfertas efectoCarta">`;
                     contenido += `<div class="front">`;
                         contenido += `<div class="img">`;
-                            contenido += `<img src="http://127.0.0.1:5000/platillos/foto/${valor["imagen"]}" alt="">`;
+                            contenido += `<img src="${domMainCarta}/platillos/foto/${valor["imagen"]}" alt="">`;
                             contenido += `<div class="back">`;
                                 contenido += `<p>${valor["descripcion"]}</p>`;
                             contenido += `</div>`;
@@ -114,7 +114,7 @@ function carritoSelect(){
                 $.each(data["resultado"], function (llave, valor) {
                     contenidoHtml += `<tr>`;
                         contenidoHtml += `<td>${valor[1]}</td>`;
-                        contenidoHtml += `<td><img src="http://127.0.0.1:5000/platillos/foto/${valor[2]}" style="width: 100px;"></td>`;
+                        contenidoHtml += `<td><img src="${domMainCarta}/platillos/foto/${valor[2]}" style="width: 100px;"></td>`;
                         contenidoHtml += `<td>${valor[3]}</td>`;
                         contenidoHtml += `<td>${valor[4]}</td>`;
                         contenidoHtml += `<td>${valor[5]}</td>`;
