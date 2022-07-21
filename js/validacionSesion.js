@@ -51,6 +51,11 @@ function validarOperaciones(idCargo) {
             '</a>' +
             '</li>' +
             '<li>' +
+            '<a href="registroVenta.html">' +
+            '<i class="fa fa-user-tie"></i>Ventas' +
+            '</a>' +
+            '</li>' +
+            '<li>' +
             '<a href="trabajadores.html">' +
             '<i class="fa fa-user-tie"></i>Trabajadores' +
             '</a>' +
